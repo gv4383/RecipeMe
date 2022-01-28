@@ -8,9 +8,18 @@
 import SwiftUI
 
 struct MenuView: View {
+    
+    let columns = [
+        GridItem(.adaptive(minimum: 150))
+    ]
+    
     var body: some View {
-        Text("Menu View")
-            .padding()
+        LazyVGrid(columns: columns) {
+            ForEach(0..<10) { _ in
+                Text("Menu View")
+                    .padding()
+            }
+        }
     }
 }
 
