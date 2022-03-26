@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B925830827EFA64F00E3217A /* RecipeMeModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = B925830627EFA64F00E3217A /* RecipeMeModel.xcdatamodeld */; };
+		B925830B27EFAB0900E3217A /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B925830A27EFAB0900E3217A /* DataController.swift */; };
+		B925830D27EFAC1000E3217A /* RecipeStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = B925830C27EFAC1000E3217A /* RecipeStorage.swift */; };
+		B9A7AEF927CF4B1B00DD00EA /* RecipeCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9A7AEF827CF4B1B00DD00EA /* RecipeCardView.swift */; };
 		B9F7129327A242B300AFADCE /* RecipeMeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F7129227A242B300AFADCE /* RecipeMeApp.swift */; };
 		B9F7129527A242B300AFADCE /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9F7129427A242B300AFADCE /* ContentView.swift */; };
 		B9F7129727A242B500AFADCE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9F7129627A242B500AFADCE /* Assets.xcassets */; };
@@ -15,6 +19,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		B925830727EFA64F00E3217A /* RecipeMeModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = RecipeMeModel.xcdatamodel; sourceTree = "<group>"; };
+		B925830A27EFAB0900E3217A /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
+		B925830C27EFAC1000E3217A /* RecipeStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeStorage.swift; sourceTree = "<group>"; };
+		B9A7AEF827CF4B1B00DD00EA /* RecipeCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCardView.swift; sourceTree = "<group>"; };
 		B9F7128F27A242B300AFADCE /* RecipeMe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RecipeMe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B9F7129227A242B300AFADCE /* RecipeMeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeMeApp.swift; sourceTree = "<group>"; };
 		B9F7129427A242B300AFADCE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -34,6 +42,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		B925830527EFA45800E3217A /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				B925830627EFA64F00E3217A /* RecipeMeModel.xcdatamodeld */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B925830927EFAAE900E3217A /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				B925830A27EFAB0900E3217A /* DataController.swift */,
+				B925830C27EFAC1000E3217A /* RecipeStorage.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		B9A7AEF727CF477500DD00EA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				B9F7129427A242B300AFADCE /* ContentView.swift */,
+				B9A7AEF827CF4B1B00DD00EA /* RecipeCardView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		B9F7128627A242B300AFADCE = {
 			isa = PBXGroup;
 			children = (
@@ -54,8 +88,10 @@
 		B9F7129127A242B300AFADCE /* RecipeMe */ = {
 			isa = PBXGroup;
 			children = (
+				B925830927EFAAE900E3217A /* Managers */,
+				B925830527EFA45800E3217A /* Models */,
+				B9A7AEF727CF477500DD00EA /* Views */,
 				B9F7129227A242B300AFADCE /* RecipeMeApp.swift */,
-				B9F7129427A242B300AFADCE /* ContentView.swift */,
 				B9F7129627A242B500AFADCE /* Assets.xcassets */,
 				B9F7129827A242B600AFADCE /* Preview Content */,
 			);
@@ -141,8 +177,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B925830B27EFAB0900E3217A /* DataController.swift in Sources */,
 				B9F7129527A242B300AFADCE /* ContentView.swift in Sources */,
+				B925830827EFA64F00E3217A /* RecipeMeModel.xcdatamodeld in Sources */,
 				B9F7129327A242B300AFADCE /* RecipeMeApp.swift in Sources */,
+				B9A7AEF927CF4B1B00DD00EA /* RecipeCardView.swift in Sources */,
+				B925830D27EFAC1000E3217A /* RecipeStorage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -345,6 +385,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		B925830627EFA64F00E3217A /* RecipeMeModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				B925830727EFA64F00E3217A /* RecipeMeModel.xcdatamodel */,
+			);
+			currentVersion = B925830727EFA64F00E3217A /* RecipeMeModel.xcdatamodel */;
+			path = RecipeMeModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = B9F7128727A242B300AFADCE /* Project object */;
 }
