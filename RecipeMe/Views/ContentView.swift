@@ -7,24 +7,14 @@
 
 import SwiftUI
 
-struct MenuView: View {
-    
-    let columns = [
-        GridItem(.adaptive(minimum: 150))
-    ]
-    
+struct ContentView: View {
     var body: some View {
-        LazyVGrid(columns: columns) {
-            ForEach(0..<10) { _ in
-                Text("Menu View")
-                    .padding()
-            }
-        }
+        MenuView()
     }
 }
 
-struct MenuView_Previews: PreviewProvider {
+struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        MenuView()
+        ContentView()
     }
 }

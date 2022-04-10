@@ -40,6 +40,7 @@ struct RecipeCardView: View {
         )
         .clipShape(RoundedRectangle(cornerRadius: 20, style: .continuous))
         .shadow(color: Color.black.opacity(0.3), radius: 15, x: 0, y: 10)
+        .padding(.bottom)
     }
 }
 
@@ -51,6 +52,8 @@ struct RecipeCardView_Previews: PreviewProvider {
     }
 }
 
-struct TestRecipe {
+struct TestRecipe: Identifiable {
+    let createdAt = Date()
+    let id = UUID()
     let name: String
 }
