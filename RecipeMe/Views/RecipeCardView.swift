@@ -57,9 +57,3 @@ struct RecipeCardView_Previews: PreviewProvider {
         return RecipeCardView(recipe: recipe)
     }
 }
-
-struct TestRecipe: Identifiable {
-    let createdAt = Date()
-    let id = UUID()
-    let name: String
-}

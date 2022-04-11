@@ -25,6 +25,7 @@ struct MenuView: View {
                 recipe.id = UUID()
                 recipe.name = "Test"
             }
+            
             ScrollView {
                 LazyVGrid(columns: columns) {
                     ForEach(viewModel.recipes) { recipe in
