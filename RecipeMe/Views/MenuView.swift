@@ -5,34 +5,30 @@
 //  Created by Goyo Vargas on 4/7/22.
 //
 
+import CoreData
 import SwiftUI
 
 struct MenuView: View {
+    @StateObject private var viewModel = MenuViewModel()
+    
     let columns = [
         GridItem(.adaptive(minimum: 150))
-    ]
-    let testRecipes = [
-        TestRecipe(name: "Test Recipe"),
-        TestRecipe(name: "Test Recipe"),
-        TestRecipe(name: "Test Recipe"),
-        TestRecipe(name: "Test Recipe"),
-        TestRecipe(name: "Test Recipe"),
-        TestRecipe(name: "Test Recipe"),
-        TestRecipe(name: "Test Recipe"),
-        TestRecipe(name: "Test Recipe"),
-        TestRecipe(name: "Test Recipe"),
-        TestRecipe(name: "Test Recipe"),
     ]
     
     var body: some View {
         VStack {
-            Button("Test") {
+            Button("Add test recipes") {
                 print("Creating new recipe...")
+                let context = DataController.shared.container.viewContext
+                let recipe = Recipe(context: context)
+                recipe.createdAt = Date()
+                recipe.id = UUID()
+                recipe.name = "Test"
             }
             ScrollView {
                 LazyVGrid(columns: columns) {
-                    ForEach(testRecipes) { testRecipe in
-                        RecipeCardView(recipe: testRecipe)
+                    ForEach(viewModel.recipes) { recipe in
+                        RecipeCardView(recipe: recipe)
                     }
                 }
             }

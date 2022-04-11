@@ -5,10 +5,11 @@
 //  Created by Goyo Vargas on 3/2/22.
 //
 
+import CoreData
 import SwiftUI
 
 struct RecipeCardView: View {
-    let recipe: TestRecipe
+    let recipe: Recipe
     
     var body: some View {
         VStack {
@@ -19,7 +20,7 @@ struct RecipeCardView: View {
                 .foregroundColor(.white.opacity(0.7))
                 .frame(maxWidth: .infinity, maxHeight: .infinity)
                 .overlay(alignment: .bottom) {
-                    Text(recipe.name)
+                    Text(recipe.name ?? "N/A")
                         .font(.headline)
                         .foregroundColor(.white)
                         .shadow(color: .black, radius: 3, x: 0, y: 0)
@@ -45,10 +46,15 @@ struct RecipeCardView: View {
 }
 
 struct RecipeCardView_Previews: PreviewProvider {
-    static var recipe = TestRecipe(name: "Test Recipe")
+    static let context = DataController.preview.container.viewContext
     
     static var previews: some View {
-        RecipeCardView(recipe: recipe)
+        let recipe = Recipe(context: context)
+        recipe.createdAt = Date()
+        recipe.id = UUID()
+        recipe.name = "Test"
+        
+        return RecipeCardView(recipe: recipe)
     }
 }
 
