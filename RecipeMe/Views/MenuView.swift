@@ -30,7 +30,7 @@ struct MenuView: View {
                 LazyVGrid(columns: columns) {
                     ForEach(viewModel.recipes) { recipe in
                         NavigationLink {
-                            RecipeView()
+                            RecipeView(recipe: recipe)
                         } label: {
                             RecipeCardView(recipe: recipe)
                         }
