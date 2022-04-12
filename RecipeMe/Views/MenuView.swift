@@ -29,7 +29,11 @@ struct MenuView: View {
             ScrollView {
                 LazyVGrid(columns: columns) {
                     ForEach(viewModel.recipes) { recipe in
-                        RecipeCardView(recipe: recipe)
+                        NavigationLink {
+                            RecipeView()
+                        } label: {
+                            RecipeCardView(recipe: recipe)
+                        }
                     }
                 }
             }
