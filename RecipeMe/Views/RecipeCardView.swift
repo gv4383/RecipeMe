@@ -31,10 +31,12 @@ struct RecipeCardView: View {
         .frame(width: 160, height: 217, alignment: .top)
         .background(
             LinearGradient(
-                gradient: Gradient(colors: [
-                    Color(.gray).opacity(0.3),
-                    Color(.gray)
-                ]),
+                gradient: Gradient(
+                    colors: [
+                        Color(.gray).opacity(0.3),
+                        Color(.gray)
+                    ]
+                ),
                 startPoint: .top,
                 endPoint: .bottom
             )

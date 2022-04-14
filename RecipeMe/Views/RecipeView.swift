@@ -11,8 +11,55 @@ struct RecipeView: View {
     let recipe: Recipe
     
     var body: some View {
-        Text("Recipe View")
-            .navigationTitle(Text(recipe.name ?? "Recipe Name"))
+        ScrollView {
+            VStack {
+                Image(systemName: "photo")
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 100, height: 100, alignment: .center)
+                    .foregroundColor(.white.opacity(0.7))
+                    .frame(maxWidth: .infinity, maxHeight: .infinity)
+            }
+            .frame(height: 300)
+            .background(
+                LinearGradient(
+                    gradient: Gradient(
+                        colors: [
+                            Color(.gray).opacity(0.3),
+                            Color(.gray)
+                        ]
+                    ),
+                    startPoint: .top,
+                    endPoint: .bottom
+                )
+            )
+            
+            VStack {
+                HStack {
+                    Text(recipe.name ?? "N/A")
+                        .font(.largeTitle)
+                        .bold()
+                    
+                    Spacer()
+                    
+                    Text("Time")
+                }
+                .padding(.horizontal)
+                
+                VStack(alignment: .leading) {
+                    Text("Description")
+                    
+                    Text("Ingredients")
+                    
+                    Text("Steps")
+                }
+                .padding()
+                .frame(maxWidth: .infinity, alignment: .leading)
+            }
+            
+        }
+        .navigationBarHidden(true)
+        .ignoresSafeArea(.container, edges: .top)
     }
 }
 
