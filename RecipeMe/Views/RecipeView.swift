@@ -73,7 +73,6 @@ struct RecipeView: View {
             }
             
         }
-        .navigationBarHidden(true)
         .ignoresSafeArea(.container, edges: .top)
     }
 }
