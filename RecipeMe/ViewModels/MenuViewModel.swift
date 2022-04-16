@@ -10,6 +10,7 @@ import Foundation
 
 final class MenuViewModel: ObservableObject {
     @Published var recipes: [Recipe] = []
+    @Published var isShowingAddRecipeView = false
     
     private var cancellable: AnyCancellable?
     

@@ -11,31 +11,40 @@ struct AddRecipeView: View {
     @StateObject private var viewModel = AddRecipeViewModel()
     
     var body: some View {
-        Form {
-            Section(header: Text("Name")) {
-                TextField("Recipe Name", text: $viewModel.name)
-            }
-            
-            Section(header: Text("Description")) {
-                TextEditor(text: $viewModel.description)
-            }
-            
-            Section(header: Text("Ingredients")) {
-                TextEditor(text: $viewModel.ingredients)
-            }
-            
-            Section(header: Text("Steps")) {
-                TextEditor(text: $viewModel.steps)
-            }
-            
-            Section(header: Text("Time")) {
-                Picker("Minutes", selection: $viewModel.time) {
-                    ForEach(0 ..< 100, id: \.self) {
-                        Text("\($0)")
+        NavigationView {
+            Form {
+                Section(header: Text("Name")) {
+                    TextField("Recipe Name", text: $viewModel.name)
+                }
+                
+                Section(header: Text("Description")) {
+                    TextEditor(text: $viewModel.description)
+                }
+                
+                Section(header: Text("Ingredients")) {
+                    TextEditor(text: $viewModel.ingredients)
+                }
+                
+                Section(header: Text("Steps")) {
+                    TextEditor(text: $viewModel.steps)
+                }
+                
+                Section(header: Text("Time")) {
+                    Picker("Total Prep + Cook Time", selection: $viewModel.time) {
+                        ForEach(0 ..< 100, id: \.self) {
+                            if ($0 == 1) {
+                                Text("\($0) minute")
+                            } else {
+                                Text("\($0) minutes")
+                            }
+                        }
                     }
                 }
             }
+            .navigationTitle("New Recipe")
+            .navigationBarTitleDisplayMode(.inline)
         }
+        .navigationViewStyle(.stack)
     }
 }
 
