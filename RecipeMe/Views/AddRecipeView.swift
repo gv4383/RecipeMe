@@ -10,6 +10,8 @@ import SwiftUI
 struct AddRecipeView: View {
     @StateObject private var viewModel = AddRecipeViewModel()
     
+    @Environment(\.dismiss) var dismiss
+    
     var body: some View {
         NavigationView {
             Form {
@@ -41,6 +43,27 @@ struct AddRecipeView: View {
                     }
                 }
             }
+            .toolbar(content: {
+                ToolbarItem(placement: .navigationBarLeading) {
+                    Button {
+                        dismiss()
+                    } label: {
+                        Label("Cancel", systemImage: "xmark")
+                            .labelStyle(.iconOnly)
+                    }
+                }
+                
+                ToolbarItem {
+                    Button {
+                        viewModel.addNewRecipe()
+                        dismiss()
+                    } label: {
+                        Label("Save", systemImage: "checkmark")
+                            .labelStyle(.iconOnly)
+                    }
+                    .disabled(viewModel.name.isEmpty)
+                }
+            })
             .navigationTitle("New Recipe")
             .navigationBarTitleDisplayMode(.inline)
         }
