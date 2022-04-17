@@ -22,6 +22,13 @@ final class AddRecipeViewModel: ObservableObject {
     }
     
     func addNewRecipe() {
+        RecipeStorage.shared.add(
+            name: name,
+            recipeDescription: description,
+            ingredients: ingredients,
+            steps: steps,
+            totalTime: time
+        )
         print("New recipe (\(name)) added!")
     }
 }

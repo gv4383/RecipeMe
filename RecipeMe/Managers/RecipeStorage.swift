@@ -39,6 +39,29 @@ final class RecipeStorage: NSObject, ObservableObject {
             print("Error, could not fetch recipes: \(error.localizedDescription)")
         }
     }
+    
+    func saveRecipe() {
+        do {
+            try context.save()
+        } catch {
+            print("Error saving recipe: \(error)")
+        }
+    }
+    
+    func add(
+        name: String,
+        recipeDescription: String,
+        ingredients: String,
+        steps: String,
+        totalTime: Int
+    ) {
+        let newRecipe = Recipe(context: context)
+        newRecipe.name = name
+        newRecipe.recipeDescription = recipeDescription
+        newRecipe.ingredients = ingredients
+        newRecipe.steps = steps
+        newRecipe.totalTime = Int16(totalTime)
+    }
 }
 
 extension RecipeStorage: NSFetchedResultsControllerDelegate {
