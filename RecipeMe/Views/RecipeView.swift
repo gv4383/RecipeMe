@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct RecipeView: View {
+    @StateObject private var viewModel = RecipeViewModel()
+    
     let recipe: Recipe
     
     var body: some View {
@@ -74,6 +76,18 @@ struct RecipeView: View {
             
         }
         .ignoresSafeArea(.container, edges: .top)
+        .toolbar {
+            ToolbarItem {
+                Button {
+                    if let recipeId = recipe.id {
+                        viewModel.removeRecipe(withId: recipeId)
+                    }
+                } label: {
+                    Label("Delete", systemImage: "trash")
+                        .labelStyle(.iconOnly)
+                }
+            }
+        }
     }
 }
 

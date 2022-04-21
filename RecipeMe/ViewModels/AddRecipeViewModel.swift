@@ -22,7 +22,7 @@ final class AddRecipeViewModel: ObservableObject {
     }
     
     func addNewRecipe() {
-        RecipeStorage.shared.add(
+        RecipeStorage.shared.create(
             name: name,
             recipeDescription: description,
             ingredients: ingredients,

@@ -48,7 +48,7 @@ final class RecipeStorage: NSObject, ObservableObject {
         }
     }
     
-    func add(
+    func create(
         name: String,
         recipeDescription: String,
         ingredients: String,
@@ -56,11 +56,24 @@ final class RecipeStorage: NSObject, ObservableObject {
         totalTime: Int
     ) {
         let newRecipe = Recipe(context: context)
+        newRecipe.createdAt = Date()
+        newRecipe.id = UUID()
         newRecipe.name = name
         newRecipe.recipeDescription = recipeDescription
         newRecipe.ingredients = ingredients
         newRecipe.steps = steps
         newRecipe.totalTime = Int16(totalTime)
+        
+        // save context
+    }
+    
+    func destroy(withId id: UUID) {
+        let recipe = recipes.value.first { recipe in
+            recipe.id == id
+        }!
+        context.delete(recipe)
+        
+        // save context
     }
 }
 

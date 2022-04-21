@@ -43,7 +43,7 @@ struct AddRecipeView: View {
                     }
                 }
             }
-            .toolbar(content: {
+            .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
                         dismiss()
@@ -63,7 +63,7 @@ struct AddRecipeView: View {
                     }
                     .disabled(viewModel.name.isEmpty)
                 }
-            })
+            }
             .navigationTitle("New Recipe")
             .navigationBarTitleDisplayMode(.inline)
         }
