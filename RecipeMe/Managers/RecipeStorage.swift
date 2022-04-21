@@ -64,7 +64,7 @@ final class RecipeStorage: NSObject, ObservableObject {
         newRecipe.steps = steps
         newRecipe.totalTime = Int16(totalTime)
         
-        // save context
+        saveRecipe()
     }
     
     func destroy(withId id: UUID) {
@@ -73,7 +73,7 @@ final class RecipeStorage: NSObject, ObservableObject {
         }!
         context.delete(recipe)
         
-        // save context
+        saveRecipe()
     }
 }
 
