@@ -36,43 +36,13 @@ struct RecipeView: View {
                 )
             )
             
-            VStack {
-                HStack {
-                    Text(recipe.name ?? "N/A")
-                        .font(.largeTitle)
-                        .bold()
-                    
-                    Spacer()
-                    
-                    Text("\(recipe.totalTime) min")
-                }
-                .padding(.horizontal)
-                
-                VStack(alignment: .leading) {
-                    Text("Description")
-                        .bold()
-                        .padding(.bottom)
-                    
-                    Text(recipe.recipeDescription ?? "N/A")
-                        .padding(.bottom)
-                    
-                    Text("Ingredients")
-                        .bold()
-                        .padding(.bottom)
-                    
-                    Text(recipe.ingredients ?? "N/A")
-                        .padding(.bottom)
-                    
-                    Text("Steps")
-                        .bold()
-                        .padding(.bottom)
-                    
-                    Text(recipe.steps ?? "N/A")
-                        .padding(.bottom)
-                }
-                .frame(maxWidth: .infinity, alignment: .leading)
-                .padding()
-            }
+            RecipeDetailsView(
+                name: recipe.name ?? "N/A",
+                totalTime: Int(recipe.totalTime),
+                recipeDescription: recipe.recipeDescription ?? "N/A",
+                ingredients: recipe.ingredients ?? "N/A",
+                steps: recipe.steps ?? "N/A"
+            )
             
         }
         .ignoresSafeArea(.container, edges: .top)
