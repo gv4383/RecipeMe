@@ -36,16 +36,21 @@ struct RecipeView: View {
                 )
             )
             
-            RecipeDetailsView(
-                name: recipe.name ?? "N/A",
-                totalTime: Int(recipe.totalTime),
-                recipeDescription: recipe.recipeDescription ?? "N/A",
-                ingredients: recipe.ingredients ?? "N/A",
-                steps: recipe.steps ?? "N/A"
-            )
-            
+            VStack(alignment: .leading) {
+                RecipeDetailsView(
+                    name: recipe.name ?? "N/A",
+                    totalTime: Int(recipe.totalTime),
+                    recipeDescription: recipe.recipeDescription ?? "N/A",
+                    ingredients: recipe.ingredients ?? "N/A",
+                    steps: recipe.steps ?? "N/A"
+                )
+            }
+            .frame(maxWidth: .infinity)
+            .background(.white)
+            .cornerRadius(20, corners: [.topLeft, .topRight])
+            .offset(y: -32)
         }
-        .ignoresSafeArea(.container, edges: .top)
+        .ignoresSafeArea(.container, edges: [.top, .bottom])
         .toolbar {
             ToolbarItem {
                 Button {

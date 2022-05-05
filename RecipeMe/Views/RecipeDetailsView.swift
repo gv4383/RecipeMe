@@ -25,7 +25,7 @@ struct RecipeDetailsView: View {
                 
                 Text("\(totalTime) min")
             }
-            .padding(.horizontal)
+            .padding([.top, .horizontal])
             
             VStack(alignment: .leading) {
                 Text("Description")
