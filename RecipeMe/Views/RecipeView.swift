@@ -37,7 +37,7 @@ struct RecipeView: View {
             )
             
             VStack(alignment: .leading) {
-                RecipeDetailsView(
+                RecipeDetails(
                     name: recipe.name ?? "N/A",
                     totalTime: Int(recipe.totalTime),
                     recipeDescription: recipe.recipeDescription ?? "N/A",

@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct TotalTimeView: View {
+struct TotalTimeDisplay: View {
     let totalTime: Int
     
     var body: some View {
@@ -18,8 +18,8 @@ struct TotalTimeView: View {
     }
 }
 
-struct TotalTimeView_Previews: PreviewProvider {
+struct TotalTimeDisplay_Previews: PreviewProvider {
     static var previews: some View {
-        TotalTimeView(totalTime: 30)
+        TotalTimeDisplay(totalTime: 30)
     }
 }

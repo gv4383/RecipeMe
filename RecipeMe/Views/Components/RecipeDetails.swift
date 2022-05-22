@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct RecipeDetailsView: View {
+struct RecipeDetails: View {
     let name: String
     let totalTime: Int
     let recipeDescription: String
@@ -23,7 +23,7 @@ struct RecipeDetailsView: View {
                 
                 Spacer()
                 
-                TotalTimeView(totalTime: totalTime)
+                TotalTimeDisplay(totalTime: totalTime)
             }
             .padding([.top, .horizontal])
             
@@ -63,7 +63,7 @@ struct RecipeDetailsView_Previews: PreviewProvider {
     static let steps = "Heat wok/pan over medium-high heat\nCut pork into bite-size pieces\nPour oil into wok/pan, toss pork in, and cook until one side is browned\nRemove meat from wok/pan\nDice onions, garlic, and carrots\nAdd more oil along with onions and garlic\nCook onions/garlic for a few minutes\nPut egg in and scramble\nAdd carrots and cook for a minute or 2\nAdd rice to wok/pan and break it apart\nAdd meat back in and mix everything together\nAdd soy sauce, fish sauce, black soy sauce, and sugar\nMix everything together and cook for 3-5 minutes\nServe on plate and eat"
     
     static var previews: some View {
-        RecipeDetailsView(
+        RecipeDetails(
             name: name,
             totalTime: totalTime,
             recipeDescription: recipeDescription,
