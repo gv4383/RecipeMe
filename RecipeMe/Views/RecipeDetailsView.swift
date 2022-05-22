@@ -23,7 +23,7 @@ struct RecipeDetailsView: View {
                 
                 Spacer()
                 
-                Text("\(totalTime) min")
+                TotalTimeView(totalTime: totalTime)
             }
             .padding([.top, .horizontal])
             
