@@ -15,11 +15,12 @@ struct RecipeView: View {
     var body: some View {
         ScrollView {
             VStack {
-                Image(systemName: "photo")
+//                Image(systemName: "photo")
+                Image(uiImage: UIImage(systemName: "photo")!)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 100, height: 100, alignment: .center)
-                    .foregroundColor(.white.opacity(0.7))
+//                    .foregroundColor(.white.opacity(0.7))
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
             .frame(height: 300)
@@ -52,7 +53,15 @@ struct RecipeView: View {
         }
         .ignoresSafeArea(.container, edges: [.top, .bottom])
         .toolbar {
-            ToolbarItem {
+            ToolbarItem(placement: .navigationBarTrailing) {
+                Button {
+                    viewModel.isShowingPhotoPicker = true
+                } label: {
+                    Text("Edit")
+                }
+            }
+            
+            ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
                     if let recipeId = recipe.id {
                         viewModel.removeRecipe(withId: recipeId)
@@ -63,7 +72,18 @@ struct RecipeView: View {
                 }
             }
         }
+        .sheet(isPresented: $viewModel.isShowingPhotoPicker) {
+            PhotoPicker()
+        }
     }
+}
+
+extension UIImageView {
+  func setImageColor(color: UIColor) {
+    let templateImage = self.image?.withRenderingMode(.alwaysTemplate)
+    self.image = templateImage
+    self.tintColor = color
+  }
 }
 
 struct RecipeView_Previews: PreviewProvider {
