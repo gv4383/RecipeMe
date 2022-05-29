@@ -10,13 +10,15 @@ import SwiftUI
 struct RecipeView: View {
     @StateObject private var viewModel = RecipeViewModel()
     
+    @State private var recipeImage = UIImage(systemName: "photo")!
+    
     let recipe: Recipe
     
     var body: some View {
         ScrollView {
             VStack {
 //                Image(systemName: "photo")
-                Image(uiImage: UIImage(systemName: "photo")!)
+                Image(uiImage: recipeImage)
                     .resizable()
                     .scaledToFit()
                     .frame(width: 100, height: 100, alignment: .center)
@@ -73,7 +75,7 @@ struct RecipeView: View {
             }
         }
         .sheet(isPresented: $viewModel.isShowingPhotoPicker) {
-            PhotoPicker()
+            PhotoPicker(recipeImage: $recipeImage)
         }
     }
 }
