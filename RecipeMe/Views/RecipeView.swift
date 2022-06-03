@@ -10,14 +10,18 @@ import SwiftUI
 struct RecipeView: View {
     @StateObject private var viewModel = RecipeViewModel()
     
-    @State private var recipeImage = UIImage(systemName: "photo")!
+    @State private var recipeImage: UIImage
     
     let recipe: Recipe
+    
+    init(recipe: Recipe) {
+        self.recipe = recipe
+        self.recipeImage = UIImage(data: recipe.recipeImage!)!
+    }
     
     var body: some View {
         ScrollView {
             VStack {
-//                Image(systemName: "photo")
                 Image(uiImage: recipeImage)
                     .resizable()
                     .scaledToFit()
@@ -75,7 +79,7 @@ struct RecipeView: View {
             }
         }
         .sheet(isPresented: $viewModel.isShowingPhotoPicker) {
-            PhotoPicker(recipeImage: $recipeImage)
+            PhotoPicker(recipeImage: $recipeImage, recipe: recipe)
         }
     }
 }
@@ -100,6 +104,7 @@ struct RecipeView_Previews: PreviewProvider {
         recipe.recipeDescription = "A simple and quick recipe for nights where you don't feel like spending too much time on cooking."
         recipe.ingredients = "Cooking oil as needed\n2 cups of pre-cooked rice (1-2 day old cooked rice preferred)\n1 cup of pork\n1 quarter to half an onion\n3 cloves of garlic\n1 cup of carrots\n1 egg\n1 tsp of soy sauce\n1 tsp of fish sauce\n1 tsp of black soy sauce\n1 tsp of sugar"
         recipe.steps = "Heat wok/pan over medium-high heat\nCut pork into bite-size pieces\nPour oil into wok/pan, toss pork in, and cook until one side is browned\nRemove meat from wok/pan\nDice onions, garlic, and carrots\nAdd more oil along with onions and garlic\nCook onions/garlic for a few minutes\nPut egg in and scramble\nAdd carrots and cook for a minute or 2\nAdd rice to wok/pan and break it apart\nAdd meat back in and mix everything together\nAdd soy sauce, fish sauce, black soy sauce, and sugar\nMix everything together and cook for 3-5 minutes\nServe on plate and eat"
+        recipe.recipeImage = UIImage(systemName: "photo")!.jpegData(compressionQuality: 0.1)
         
         return NavigationView {
             RecipeView(recipe: recipe)

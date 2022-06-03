@@ -67,6 +67,28 @@ final class RecipeStorage: NSObject, ObservableObject {
         saveRecipe()
     }
     
+    func update(
+        withId id: UUID,
+        name: String,
+        recipeDescription: String,
+        ingredients: String,
+        steps: String,
+        totalTime: Int,
+        recipeImage: Data
+    ) {
+        let recipe = recipes.value.first { recipe in
+            recipe.id == id
+        }!
+        recipe.name = name
+        recipe.recipeDescription = recipeDescription
+        recipe.ingredients = ingredients
+        recipe.steps = steps
+        recipe.totalTime = Int16(totalTime)
+        recipe.recipeImage = recipeImage
+        
+        saveRecipe()
+    }
+    
     func destroy(withId id: UUID) {
         let recipe = recipes.value.first { recipe in
             recipe.id == id
