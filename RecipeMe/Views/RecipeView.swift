@@ -10,6 +10,7 @@ import SwiftUI
 struct RecipeView: View {
     @StateObject private var viewModel = RecipeViewModel()
     
+    // TODO: Look into moving this into view model
     @State private var recipeImage: UIImage
     
     let recipe: Recipe
@@ -44,13 +45,19 @@ struct RecipeView: View {
             )
             
             VStack(alignment: .leading) {
-                RecipeDetails(
-                    name: recipe.name ?? "N/A",
-                    totalTime: Int(recipe.totalTime),
-                    recipeDescription: recipe.recipeDescription ?? "N/A",
-                    ingredients: recipe.ingredients ?? "N/A",
-                    steps: recipe.steps ?? "N/A"
-                )
+                if let name = recipe.name,
+                   let totalTime = recipe.totalTime,
+                   let recipeDescription = recipe.recipeDescription,
+                   let ingredients = recipe.ingredients,
+                   let steps = recipe.steps {
+                    RecipeDetails(
+                        name: name,
+                        totalTime: Int(totalTime),
+                        recipeDescription: recipeDescription,
+                        ingredients: ingredients,
+                        steps: steps
+                    )
+                }
             }
             .frame(maxWidth: .infinity)
             .background(.white)
