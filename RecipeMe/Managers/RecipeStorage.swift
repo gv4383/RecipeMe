@@ -7,7 +7,6 @@
 
 import Combine
 import CoreData
-import Foundation
 import UIKit
 
 final class RecipeStorage: NSObject, ObservableObject {
@@ -64,7 +63,7 @@ final class RecipeStorage: NSObject, ObservableObject {
         newRecipe.ingredients = ingredients
         newRecipe.steps = steps
         newRecipe.totalTime = Int16(totalTime)
-        newRecipe.recipeImage = UIImage(systemName: "photo")!.jpegData(compressionQuality: 0.1)
+        newRecipe.recipeImage = UIImage(named: "FoodPlaceholder")!.jpegData(compressionQuality: 0.1)
         
         saveRecipe()
     }
