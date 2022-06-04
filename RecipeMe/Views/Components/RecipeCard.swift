@@ -10,10 +10,16 @@ import SwiftUI
 
 struct RecipeCardView: View {
     let recipe: Recipe
+    let recipeImage: UIImage
+    
+    init(recipe: Recipe) {
+        self.recipe = recipe
+        self.recipeImage = UIImage(data: recipe.recipeImage!)!
+    }
     
     var body: some View {
         VStack {
-            Image(systemName: "photo")
+            Image(uiImage: recipeImage)
                 .resizable()
                 .scaledToFit()
                 .frame(width: 40, height: 40, alignment: .center)
@@ -55,6 +61,7 @@ struct RecipeCardView_Previews: PreviewProvider {
         recipe.createdAt = Date()
         recipe.id = UUID()
         recipe.name = "Test"
+        recipe.recipeImage = UIImage(systemName: "photo")!.jpegData(compressionQuality: 0.1)
         
         return RecipeCardView(recipe: recipe)
     }
