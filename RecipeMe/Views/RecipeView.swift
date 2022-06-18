@@ -77,14 +77,6 @@ struct RecipeView: View {
     }
 }
 
-extension UIImageView {
-  func setImageColor(color: UIColor) {
-    let templateImage = self.image?.withRenderingMode(.alwaysTemplate)
-    self.image = templateImage
-    self.tintColor = color
-  }
-}
-
 struct RecipeView_Previews: PreviewProvider {
     static let context = DataController.preview.container.viewContext
     
