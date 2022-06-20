@@ -4,6 +4,9 @@
   <img src="https://dl.dropboxusercontent.com/s/2g44xjhwxq5bm1e/recipe_me_app_icon.png?dl=0" alt="RainBoot" width="80" height="80">
   <p align="center">
     RecipeMe is a simple iOS app that keeps track of your recipes.
+    <br />
+    <br />
+    (<strong>*NOTE*</strong> You might have to change the appearance of github  to a dark theme to see the screenshots clearly)
   </p>
 </p>
 
