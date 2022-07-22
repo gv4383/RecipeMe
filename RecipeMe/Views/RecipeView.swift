@@ -28,7 +28,6 @@ struct RecipeView: View {
                     .aspectRatio(contentMode: .fill)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }
-            .frame(height: 300)
             
             VStack(alignment: .leading) {
                 if let name = recipe.name,
@@ -50,13 +49,14 @@ struct RecipeView: View {
             .cornerRadius(20, corners: [.topLeft, .topRight])
             .offset(y: -32)
         }
-        .ignoresSafeArea(.container, edges: [.top, .bottom])
+        .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .navigationBarTrailing) {
                 Button {
                     viewModel.isShowingPhotoPicker = true
                 } label: {
-                    Text("Edit")
+                    Label("Select Image", systemImage: "camera")
+                        .labelStyle(.iconOnly)
                 }
             }
             
