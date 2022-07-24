@@ -13,7 +13,7 @@
 <p align="center">
   <img src= "https://dl.dropboxusercontent.com/s/znwwz75uo8k2kg2/recipe_me_menu_view.png?dl=0" width="300">
   <img src= "https://dl.dropboxusercontent.com/s/awxiagoi02q9m99/recipe_me_new_recipe_view.png?dl=0" width="300">
-  <img src= "https://dl.dropboxusercontent.com/s/tu50t1nijbtlqi7/recipe_me_recipe_view.png?dl=0" width="300">
+  <img src= "https://dl.dropboxusercontent.com/s/n692asc0rfhwe3x/recipe_me_recipe_view.png?dl=0" width="300">
 </p>
 
 ## Features
