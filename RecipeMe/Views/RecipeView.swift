@@ -45,9 +45,9 @@ struct RecipeView: View {
                 }
             }
             .frame(maxWidth: .infinity)
-            .background(.white)
             .cornerRadius(20, corners: [.topLeft, .topRight])
             .offset(y: -32)
+            .padding(.bottom, -68)
         }
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {

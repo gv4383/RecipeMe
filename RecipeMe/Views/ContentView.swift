@@ -12,7 +12,6 @@ struct ContentView: View {
         NavigationView {
             MenuView()
                 .navigationTitle("Menu")
-                .preferredColorScheme(.light)
         }
     }
 }

@@ -8,11 +8,17 @@
 import SwiftUI
 
 struct RecipeDetails: View {
+    @Environment(\.colorScheme) var colorScheme
+    
     let name: String
     let totalTime: Int
     let recipeDescription: String
     let ingredients: String
     let steps: String
+    
+    var detailsBackgroundColor: Color {
+        colorScheme == .dark ? Color(white: 0.2) : .white
+    }
     
     var body: some View {
         VStack {
@@ -52,6 +58,7 @@ struct RecipeDetails: View {
             .frame(maxWidth: .infinity, alignment: .leading)
             .padding()
         }
+        .background(detailsBackgroundColor)
     }
 }
 
