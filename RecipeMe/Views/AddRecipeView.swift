@@ -67,6 +67,9 @@ struct AddRecipeView: View {
             .navigationTitle("New Recipe")
             .navigationBarTitleDisplayMode(.inline)
         }
+        .onTapGesture {
+            self.dismissKeyboard()
+        }
         .navigationViewStyle(.stack)
     }
 }
