@@ -40,12 +40,8 @@ final class RecipeStorage: NSObject, ObservableObject {
         }
     }
     
-    func saveRecipe() {
-        do {
-            try context.save()
-        } catch {
-            print("Error saving recipe: \(error)")
-        }
+    func saveRecipe() throws {
+        try context.save()
     }
     
     func create(
@@ -54,7 +50,7 @@ final class RecipeStorage: NSObject, ObservableObject {
         ingredients: String,
         steps: String,
         totalTime: Int
-    ) {
+    ) throws {
         let newRecipe = Recipe(context: context)
         newRecipe.createdAt = Date()
         newRecipe.id = UUID()
@@ -65,7 +61,7 @@ final class RecipeStorage: NSObject, ObservableObject {
         newRecipe.totalTime = Int16(totalTime)
         newRecipe.recipeImage = UIImage(named: "FoodPlaceholder")!.jpegData(compressionQuality: 0.1)
         
-        saveRecipe()
+        try saveRecipe()
     }
     
     func update(
@@ -76,7 +72,7 @@ final class RecipeStorage: NSObject, ObservableObject {
         steps: String,
         totalTime: Int,
         recipeImage: Data
-    ) {
+    ) throws {
         let recipe = recipes.value.first { recipe in
             recipe.id == id
         }!
@@ -87,16 +83,16 @@ final class RecipeStorage: NSObject, ObservableObject {
         recipe.totalTime = Int16(totalTime)
         recipe.recipeImage = recipeImage
         
-        saveRecipe()
+        try saveRecipe()
     }
     
-    func destroy(withId id: UUID) {
+    func destroy(withId id: UUID) throws {
         let recipe = recipes.value.first { recipe in
             recipe.id == id
         }!
         context.delete(recipe)
         
-        saveRecipe()
+        try saveRecipe()
     }
 }
 

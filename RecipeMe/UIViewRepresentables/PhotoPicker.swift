@@ -43,15 +43,19 @@ struct PhotoPicker: UIViewControllerRepresentable {
                 }
                 photoPicker.recipeImage = compressedImage
                 
-                RecipeStorage.shared.update(
-                    withId: recipe.id!,
-                    name: recipe.name!,
-                    recipeDescription: recipe.recipeDescription!,
-                    ingredients: recipe.ingredients!,
-                    steps: recipe.steps!,
-                    totalTime: Int(recipe.totalTime),
-                    recipeImage: data
-                )
+                do {
+                    try RecipeStorage.shared.update(
+                        withId: recipe.id!,
+                        name: recipe.name!,
+                        recipeDescription: recipe.recipeDescription!,
+                        ingredients: recipe.ingredients!,
+                        steps: recipe.steps!,
+                        totalTime: Int(recipe.totalTime),
+                        recipeImage: data
+                    )
+                } catch {
+                    print("Error: there was a problem updating your recipe")
+                }
             } else {
                 print("Error: there was a problem selecting the image")
             }
