@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+// TODO: Figure out how to dismiss keyboard when tapping outside of text editor
 struct AddRecipeView: View {
     @StateObject private var viewModel = AddRecipeViewModel()
     
@@ -66,9 +67,6 @@ struct AddRecipeView: View {
             }
             .navigationTitle("New Recipe")
             .navigationBarTitleDisplayMode(.inline)
-        }
-        .onTapGesture {
-            self.dismissKeyboard()
         }
         .navigationViewStyle(.stack)
     }
